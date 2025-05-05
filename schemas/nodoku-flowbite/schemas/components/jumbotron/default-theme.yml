@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=./visual-schema.json
+
+containerStyle:
+    base: py-8 px-4 text-center lg:py-16
+    decoration: ''
+bgImageStyle:
+    base: -z-20 bg-cover bg-no-repeat bg-center
+    decoration: blur-sm
+bgColorStyle:
+    base: -z-10
+    decoration: opacity-50 bg-gray-100 dark:bg-gray-700
+titleStyle:
+    base: mb-4 lg:text-6xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl
+    decoration: ''
+subTitleStyle:
+    base: mb-8 lg:text-4xl font-normal md:text-2xl sm:px-16 lg:px-48
+    decoration: ''
+paragraphStyle:
+    base: mb-4 lg:text-2xl font-normal md:text-xl sm:px-16 lg:px-48
+    decoration: ''
+ctaContainerStyle:
+    base: flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 mt-5
+    decoration: ''
+ctaButtonStyle:
+    - base: inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900
+      decoration: ''
+    - base: py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700
+      decoration: ''
+codeHighlightTheme:
+    hljsLightTheme: a11y-light
+    hljsDarkTheme: a11y-dark
+    lightDisplay: light:inline-block
+    darkDisplay: dark:inline-block
+    codeContainer:
+        base: text-center w-full
+        decoration: ''
+    preContainer:
+        base: text-left w-full
+        decoration: border-2 border-gray-200
+    pre:
+        base: ''
+        decoration: ''
+listTheme:
+    listStyle:
+        base: inline-block list-disc space-y-1 list-outside
+        decoration: ''
+    listItemStyle:
+        base: ml-4
+        decoration: ''

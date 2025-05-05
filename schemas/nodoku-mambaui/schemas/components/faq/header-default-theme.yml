@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=./visual-schema.json
+
+bgImageStyle:
+    base: ''
+    decoration: ''
+bgColorStyle:
+    base: ''
+    decoration: ''
+containerStyle:
+    base: container mx-auto dark:bg-gray-800 bg-gray-100
+    decoration: ''
+innerContainerStyle:
+    base: container flex flex-col justify-center p-4 mx-auto md:p-8
+    decoration: ''
+titleStyle:
+    base: mb-6 text-4xl font-bold leading-none text-center sm:text-5xl
+    decoration: ''
+subTitleStyle:
+    base: p-2 text-sm font-medium tracking-wider text-center uppercase
+    decoration: ''

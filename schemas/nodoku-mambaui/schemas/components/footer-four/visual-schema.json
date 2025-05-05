@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "containerStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "innerContainerStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "contentContainerStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "imageContainerStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "imageStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "brandNameStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "sectionTitleStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "copyrightNoticeStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "subTitleStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "additionalProperties": false
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "className": {
+      "type": "string"
+    },
+
+    "navStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "navInnerContainer": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "logoBlockStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "logoImageStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "logoLinkStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "logoCompanyNameStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "rightButtonsBlock": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "mainMenuBlock": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "mainMenuListStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "mainMenuFirstLevelItemStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "mainMenuSecondLevelItemStyle": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "mainMenuDropdownContainer": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "mainMenuDropdownList": {
+      "$ref": "../../../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "additionalProperties": false
+  },
+  "additionalProperties": false
+}
