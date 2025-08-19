@@ -13,6 +13,14 @@ import {commonImageProvider} from "@/app/components/common-provider";
 import {commonHtmlSanitizer} from "@/app/components/common-provider";
 import {nameToIconConverters} from "@/app/components/common-provider";
 import {NodokuIcons} from "nodoku-icons";
+import {NodokuI18n} from "nodoku-i18n";
+import {i18nStore} from "@/app/components/nodoku-server-i18n-config";
+import LanguageDef = NodokuI18n.LanguageDef;
+import {gb_flag} from "nodoku-icons/nd-flag-icons/gb";
+import {ru_flag} from "nodoku-icons/nd-flag-icons/ru";
+import {ClientSideComponentNameEnum} from "@/nodoku-component-resolver";
+import {fromStringToClientSideComponentNameEnum} from "@/nodoku-component-resolver";
+import {LanguageSwitcher} from "@/app/components/language-switcher";
 
 
 var runsOnServerSide = typeof window === 'undefined';
@@ -41,27 +49,58 @@ export type NavHeaderProps = {
 
 }
 
+function countryCodeToFlagIcon(countryCode: string, className: string): JSX.Element | undefined {
+
+    switch (countryCode) {
+        case "gb":
+            return <>{gb_flag("1x1", className)!({})}</>
+        case "ru":
+            return <>{ru_flag("1x1", className)!({})}</>
+    }
+
+    return undefined
+
+}
 
 
-export default async function NavHeader(/*params: {lng: string, languages: LanguageDef[]}*/): Promise<JSX.Element> {
+export default async function NavHeader(params: {lng: string, languages: LanguageDef[]}): Promise<JSX.Element> {
+
+    const {lng, languages} = params;
 
     const skin: NdPageSkin = parseYamlContentAsSkin(fs.readFileSync("./public/site/header-footer/nav-header.yaml").toString());
     const content: NdContentBlock[] = parseMarkdownAsContent(fs.readFileSync("./public/site/header-footer/nav-header.md").toString(), "en", "nav-header")
 
+    const iconLanguages = await Promise.all(languages.map(async l => (
+        {...l, icon: countryCodeToFlagIcon(l.icon, "fi fis fiCircle inline-block")})));
+
     const clientSideComponentProvider = (c: string) => {
-        return <></>
+
+        const k: ClientSideComponentNameEnum | undefined = fromStringToClientSideComponentNameEnum(c);
+
+        if (k !== undefined) {
+
+            switch (k) {
+                case "flowbite/nav-header:language-switcher":
+                    return languages.length > 0 ? <LanguageSwitcher languages={iconLanguages} selectedLng={lng} /> : <></>
+                case "flowbite/nav-header:user-account":
+                    // return <UserAccount />
+                    return <></>
+            }
+
+        }
+        return <span>[placeholder for {c}]</span>
     }
 
     return (
         <RenderingPage
-            lng={"en"}
+            lng={lng}
             renderingPriority={RenderingPriority.skin_first}
             skin={skin}
             content={content}
             componentResolver={nodokuComponentResolver}
             imageProvider={commonImageProvider}
             htmlSanitizer={commonHtmlSanitizer}
-            i18nextProvider={undefined}
+            i18nextProvider={NodokuI18n.i18nForNodoku(i18nStore)}
             i18nextPostProcessor={NodokuIcons.iconTextPostProcessorFactory(nameToIconConverters)}
             clientSideComponentProvider={clientSideComponentProvider}
         />

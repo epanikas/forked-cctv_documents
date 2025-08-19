@@ -9,6 +9,8 @@ import {commonImageProvider} from "@/app/components/common-provider";
 import {commonHtmlSanitizer} from "@/app/components/common-provider";
 import {nameToIconConverters} from "@/app/components/common-provider";
 import {NodokuIcons} from "nodoku-icons";
+import {NodokuI18n} from "nodoku-i18n";
+import {i18nStore} from "@/app/components/nodoku-server-i18n-config";
 
 var runsOnServerSide = typeof window === 'undefined';
 if (!runsOnServerSide) {
@@ -16,22 +18,24 @@ if (!runsOnServerSide) {
 }
 
 
-export default async function Home(/*{params}: { params: Promise<{ lng: string }> }*/): Promise<JSX.Element> {
+export default async function Home({params}: { params: Promise<{ lng: string }> }): Promise<JSX.Element> {
+
+    const {lng} = await params;
 
     const skin: NdPageSkin = parseYamlContentAsSkin(fs.readFileSync("./public/site/nodoku-landing.yaml").toString());
-    const content: NdContentBlock[] = parseMarkdownAsContent(fs.readFileSync("./public/site/nodoku-landing.md").toString(), "en", "nodoku-landing")
+    const content: NdContentBlock[] = parseMarkdownAsContent(fs.readFileSync("./public/site/nodoku-landing.md").toString(), "en", "cctv-landing")
 
     console.log("rendering content: \n", content.map(b => `b.id ${b.id} b.list ${b.paragraphs.filter(p => p instanceof NdList).map(l => l.items == undefined ? "list with no items!!!" : "ok").join(", ")}`).join('\n'));
 
     return <RenderingPage
-                lng={"en"}
+                lng={lng}
                 renderingPriority={RenderingPriority.skin_first}
                 skin={skin}
                 content={content}
                 componentResolver={nodokuComponentResolver}
                 imageProvider={commonImageProvider}
                 htmlSanitizer={commonHtmlSanitizer}
-                i18nextProvider={undefined}
+                i18nextProvider={NodokuI18n.i18nForNodoku(i18nStore)}
                 i18nextPostProcessor={NodokuIcons.iconTextPostProcessorFactory(nameToIconConverters)}
                 clientSideComponentProvider={undefined}
             />;

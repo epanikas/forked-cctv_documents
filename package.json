@@ -14,7 +14,9 @@
     "lint": "next lint",
     "gen-component-resolver": "nodoku-gen-component-resolver",
     "gen-skin-schema": "nodoku-gen-skin-schema",
-    "postcss": "postcss -o  ./output.css ./src/app/globals.css"
+    "postcss": "postcss -o  ./output.css ./src/app/globals.css",
+    "postprocess-missing": "shx rm -f ./missing-keys.json && shx rm -f ./updated-keys.json && shx rm -f ./existing-keys.json && env-cmd nodoku-i18n-postprocess-missing-keys-as-json",
+    "upload-missing": "env-cmd nodoku-i18n-upload-missing-keys-to-simplelocalize"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
@@ -35,6 +37,7 @@
     "nodoku-icons": "^0.2",
     "nodoku-flowbite": "^0.3",
     "nodoku-mambaui": "^0.3",
+    "nodoku-i18n": "^0.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "autoprefixer": "^10.4.19",
