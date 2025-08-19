@@ -5,11 +5,11 @@ nd-block:
     sectionName: head-hero
 ```
 
-# Nodoku
+# CCTV
 
-## a content-first landing page and <br>static site generator
+## my first projects  <br>static site generator
 
-Nodoku is a set of libraries aiming at creating beautiful and responsive landing pages effortlessly. 
+CCTV is a set of libraries aiming at creating beautiful and responsive landing pages effortlessly. 
 
 Nodoku uses **_Markdown_** file as content supplier, and a **_Yaml_** file as visual configurator.
 
